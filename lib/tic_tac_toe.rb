@@ -95,8 +95,10 @@ def won?(board)
         
       end
     end
-    if res_o.length > res_x.length
-      return true, res_o[0]
+    if res_o.length && res_x.length == 0
+      return false
+    elsif res_o.length > res_x.length
+      return true, res_o[0] 
     else
       return true, res_x[0]
     end
