@@ -17,7 +17,7 @@ def input_to_index(input)
   index = input.to_i-1
   return index
 end
-
+ 
 def move(board, index, player_token)
   board[index] = player_token
   return board
@@ -38,7 +38,6 @@ def position_taken(board, index)
 end
 
 def turn(board)
-  
   puts "Please choose a free cell between 1-9"
   input = gets.strip
   index = input_to_index(input)
@@ -47,7 +46,7 @@ def turn(board)
     display_board(board)
   else 
     puts "invalid move, please try again"
-    turn(board)
+    #turn(board)
   end
 end
 
