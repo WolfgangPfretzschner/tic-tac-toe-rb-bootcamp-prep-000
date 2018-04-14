@@ -92,7 +92,6 @@ def won?(board)
         res_x.push(possibility)
       elsif (x_and_o_arr[1].include?(possibility[0]) && x_and_o_arr[1].include?(possibility[1]) && x_and_o_arr[1].include?(possibility[2]))
         res_o.push(possibility)
-
       end
     end
     if res_o.length && res_x.length == 0
