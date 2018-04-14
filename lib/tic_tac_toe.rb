@@ -148,8 +148,7 @@ def winner(board)
 end
 
 def play(board)
-  counter = 0
-  while won?(board) == false do
+  while over?(board) == false do
     turn(board)
   end
 end
