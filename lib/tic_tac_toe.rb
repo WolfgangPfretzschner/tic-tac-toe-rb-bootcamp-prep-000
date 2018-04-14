@@ -153,7 +153,7 @@ def play(board)
   end
   if over?(board) == true
     win = winner(board)
-    puts "Congratulations #{win}"
+    puts "Congratulations #{win}!"
   else
-    
+    puts "Cat\'s Game!"
 end
