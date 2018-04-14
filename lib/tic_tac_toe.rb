@@ -45,7 +45,7 @@ def turn(board)
     move(board,index,current_player(board))
     display_board(board)
   else
-    puts "invalid move, please try again"
+    puts "#{input} is invalid or already taken, please try again"
     turn(board)
   end
 end
