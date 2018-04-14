@@ -17,7 +17,7 @@ def input_to_index(input)
   index = input.to_i-1
   return index
 end
- 
+
 def move(board, index, player_token)
   board[index] = player_token
   return board
@@ -25,7 +25,7 @@ end
 
 def valid_move?(board, index)
   if index.between?(0,8) &! position_taken(board, index)
-    return true 
+    return true
   end
 end
 
@@ -33,7 +33,7 @@ def position_taken(board, index)
   if board[index] == "" || board[index] ==" " || board[index] == nil
     return false
   elsif board[index] =="X" || board[index] == "O"
-    return true 
+    return true
   end
 end
 
@@ -44,14 +44,14 @@ def turn(board)
   if valid_move?(board, index)
     move(board,index,current_player(board))
     display_board(board)
-  else 
+  else
     puts "invalid move, please try again"
     #turn(board)
   end
 end
 
 def current_player(board)
-  if turn_count(board) %2 ==0 
+  if turn_count(board) %2 ==0
     return "X"
   else
     return "O"
@@ -62,7 +62,7 @@ def turn_count(board)
   count = 0
   board.each do |i|
     if i == "O" || i == "X"
-      count +=1 
+      count +=1
     end
   end
   return count
@@ -71,18 +71,18 @@ end
 def x_and_o(board)
   x_board = []
   o_board = []
-  i = 0 
+  i = 0
   while i < board.length
     if board[i] == "X"
       x_board.push(i)
     elsif board[i] == "O"
       o_board.push(i)
     end
-    i+=1 
+    i+=1
   end
   return [x_board, o_board]
 end
-     
+
 def won?(board)
   x_and_o_arr = x_and_o(board)
   res_o=[]
@@ -91,7 +91,7 @@ def won?(board)
      if (x_and_o_arr[0].include?(possibility[0]) && x_and_o_arr[0].include?(possibility[1]) && x_and_o_arr[0].include?(possibility[2]))
         res_x.push(possibility)
       elsif (x_and_o_arr[1].include?(possibility[0]) && x_and_o_arr[1].include?(possibility[1]) && x_and_o_arr[1].include?(possibility[2]))
-        res_o.push(possibility) 
+        res_o.push(possibility)
       end
     end
     if res_o.length > res_x.length
@@ -106,15 +106,15 @@ def full?(board)
   if x_and_o_arr[0].length + x_and_o_arr[1].length < 9
     return false
   else
-    return true 
+    return true
   end
 end
-  
+
 def draw?(board)
   if full?(board) &! won?(board)
-    return true 
+    return true
   elsif won?(board)
-    return false 
+    return false
   end
 end
 
@@ -135,14 +135,14 @@ def winner(board)
      if (x_and_o_arr[0].include?(possibility[0]) && x_and_o_arr[0].include?(possibility[1]) && x_and_o_arr[0].include?(possibility[2]))
         res_x.push(possibility)
       elsif (x_and_o_arr[1].include?(possibility[0]) && x_and_o_arr[1].include?(possibility[1]) && x_and_o_arr[1].include?(possibility[2]))
-        res_o.push(possibility) 
+        res_o.push(possibility)
       end
     end
     if res_o.length > res_x.length
       return "O"
     elsif res_o.length == res_x.length
       return nil
-    else 
+    else
       return "X"
     end
 end
@@ -150,10 +150,10 @@ end
 def play(board)
   begin
     turn(board)
-    counter = 0 
+    counter = 0
     counter +=1
   end until counter == 9
-  
+
   if won?(board)
     win = winner(board)
     puts "Congratulations #{win} "
@@ -161,4 +161,3 @@ def play(board)
     puts "Cat\'s Game!"
   end
 end
- 
