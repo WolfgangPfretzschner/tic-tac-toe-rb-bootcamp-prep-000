@@ -94,7 +94,9 @@ def won?(board)
         res_o.push(possibility)
       end
     end
-    if res_o.length && res_x.length == 0
+    puts "#{res_o}"
+    puts "#{res_x}"
+    if res_o.length == 0 && res_x.length == 0
       return false
     elsif res_o.length > res_x.length
       return true, res_o[0]
