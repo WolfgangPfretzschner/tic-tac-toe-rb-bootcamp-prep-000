@@ -46,7 +46,7 @@ def turn(board)
     display_board(board)
   else
     puts "invalid move, please try again"
-    #turn(board)
+    turn(board)
   end
 end
 
@@ -148,11 +148,11 @@ def winner(board)
 end
 
 def play(board)
+  counter = 0
   begin
     turn(board)
-    counter = 0
     counter +=1
-  end until counter == 9
+  end while counter <= 9
 
   if won?(board)
     win = winner(board)
