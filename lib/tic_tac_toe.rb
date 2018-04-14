@@ -90,10 +90,8 @@ def won?(board)
   WIN_COMBINATIONS.each do |possibility|
       if (x_and_o_arr[0].include?(possibility[0]) && x_and_o_arr[0].include?(possibility[1]) && x_and_o_arr[0].include?(possibility[2]))
         res_x.push(possibility)
-        puts "#{res_x}"
       elsif (x_and_o_arr[1].include?(possibility[0]) && x_and_o_arr[1].include?(possibility[1]) && x_and_o_arr[1].include?(possibility[2]))
         res_o.push(possibility)
-        puts "#{res_o}"
       end
     end
     if res_o.length > res_x.length
